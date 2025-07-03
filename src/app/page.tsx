@@ -1,5 +1,6 @@
 "use client";
 import { BackgroundBeamsWithCollision } from "@/components/ui/background-beams-with-collision";
+import { Spotlight } from "@/components/ui/spotlight-new";
 import { ContainerTextFlip } from "@/components/ui/container-text-flip";
 import { Button } from "@/components/ui/moving-border";
 import { motion } from "framer-motion";
@@ -22,6 +23,7 @@ import {
   SheetDescription,
 } from "@/components/ui/sheet";
 import { useState } from "react";
+import { HoverEffect } from "@/components/ui/card-hover-effect";
 
 export default function Home() {
   const [sheetOpen, setSheetOpen] = useState(false);
@@ -314,230 +316,387 @@ export default function Home() {
                 <div className="h-1 w-16 sm:w-20 bg-green-500 rounded-full mx-auto lg:mx-0"></div>
               </div>
               <p className="text-base sm:text-lg text-gray-300 mb-4 sm:mb-6">
-                Hi, I'm <span className="font-bold text-white">RVV Swamy</span>, a Full-Stack Developer specializing in building modern web applications.
+             
+                Hi, I'm <span className="font-bold text-white">RVV Swamy</span>,
+                a Full-Stack Developer specializing in building modern web
+                applications.
               </p>
               <div className="space-y-3 sm:space-y-4 text-gray-300">
                 <div className="flex items-start justify-center lg:justify-start text-left">
                   <span className="text-green-500 mr-2 mt-1">•</span>
                   <p>
-                    Experienced in <span className="font-semibold text-white">MERN Stack</span>, <span className="font-semibold text-white">Next.js</span>, and <span className="font-semibold text-white">TypeScript</span>, with a focus on clean, maintainable code and scalable architecture.
+                    Experienced in{" "}
+                    <span className="font-semibold text-white">MERN Stack</span>
+                    , <span className="font-semibold text-white">Next.js</span>,
+                    and{" "}
+                    <span className="font-semibold text-white">TypeScript</span>
+                    , with a focus on clean, maintainable code and scalable
+                    architecture.
                   </p>
                 </div>
                 <div className="flex items-start justify-center lg:justify-start text-left">
                   <span className="text-green-500 mr-2 mt-1">•</span>
                   <p>
-                    Developed various applications including <span className="font-semibold text-white">eCommerce platforms</span>, nutrition tracking systems, and secure content management solutions.
+                    Developed various applications including{" "}
+                    <span className="font-semibold text-white">
+                      eCommerce platforms
+                    </span>
+                    , nutrition tracking systems, and secure content management
+                    solutions.
                   </p>
                 </div>
                 <div className="flex items-start justify-center lg:justify-start text-left">
                   <span className="text-green-500 mr-2 mt-1">•</span>
                   <p>
-                    Passionate about creating <span className="font-semibold text-white">intuitive user experiences</span> and solving complex technical challenges through innovative solutions.
+                    Passionate about creating{" "}
+                    <span className="font-semibold text-white">
+                      intuitive user experiences
+                    </span>{" "}
+                    and solving complex technical challenges through innovative
+                    solutions.
                   </p>
                 </div>
               </div>
               <div className="w-full mt-6 sm:mt-8">
-  <div className="relative w-full flex items-center justify-center mt-4">
-    <div className="relative w-full">
-      {/* Moving Border SVG */}
-      <svg
-        className="absolute inset-0 w-full h-full pointer-events-none z-10"
-        width="100%"
-        height="100%"
-        viewBox="0 0 100 100"
-        preserveAspectRatio="none"
-      >
-        <rect
-          x="1" y="1" width="98" height="98"
-          rx="24" ry="24"
-          fill="none"
-          stroke="#22c55e"
-          strokeWidth="2"
-          strokeDasharray="400"
-        >
-          <animate
-            attributeName="stroke-dashoffset"
-            values="0;400"
-            dur="3s"
-            repeatCount="indefinite"
-          />
-        </rect>
-      </svg>
-      <div className="relative bg-gray-900 rounded-[1.5rem] p-6 sm:p-8 w-full border border-green-600/60 min-h-[220px] z-20">
-        <h3 className="text-2xl sm:text-3xl font-bold text-green-400 mb-4 sm:mb-6">Education</h3>
-        <ul className="text-gray-200 space-y-4 sm:space-y-5 text-left">
-          <li className="pb-4 sm:pb-5 border-b border-gray-700">
-            <span className="font-semibold text-white text-lg sm:text-xl">B.Tech in Computer Science</span> 
-            <div className="text-sm sm:text-base text-gray-400 mt-1">XYZ University, 2021 - 2025</div>
-          </li>
-          <li className="pb-4 sm:pb-5 border-b border-gray-700">
-            <span className="font-semibold text-white text-lg sm:text-xl">Intermediate (MPC)</span> 
-            <div className="text-sm sm:text-base text-gray-400 mt-1">ABC Junior College, 2019 - 2021</div>
-          </li>
-          <li>
-            <span className="font-semibold text-white text-lg sm:text-xl">SSC</span> 
-            <div className="text-sm sm:text-base text-gray-400 mt-1">DEF High School, 2018 - 2019</div>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</div>
+                <div className="relative w-full flex items-center justify-center mt-4">
+                  <div className="relative w-full">
+                    {/* Moving Border SVG */}
+                    <svg
+                      className="absolute inset-0 w-full h-full pointer-events-none z-10"
+                      width="100%"
+                      height="100%"
+                      viewBox="0 0 100 100"
+                      preserveAspectRatio="none"
+                    >
+                      <rect
+                        x="1"
+                        y="1"
+                        width="98"
+                        height="98"
+                        rx="24"
+                        ry="24"
+                        fill="none"
+                        stroke="#22c55e"
+                        strokeWidth="2"
+                        strokeDasharray="400"
+                      >
+                        <animate
+                          attributeName="stroke-dashoffset"
+                          values="0;400"
+                          dur="3s"
+                          repeatCount="indefinite"
+                        />
+                      </rect>
+                    </svg>
+                    <div className="relative bg-gray-900 rounded-[1.5rem] p-6 sm:p-8 w-full border border-green-600/60 min-h-[220px] z-20">
+                      <h3 className="text-2xl sm:text-3xl font-bold text-green-400 mb-4 sm:mb-6">
+                        Education
+                      </h3>
+                      <ul className="text-gray-200 space-y-4 sm:space-y-5 text-left">
+                        <li className="pb-4 sm:pb-5 border-b border-gray-700">
+                          <span className="font-semibold text-white text-lg sm:text-xl">
+                            B.Tech in Computer Science
+                          </span>
+                          <div className="text-sm sm:text-base text-gray-400 mt-1">
+                            XYZ University, 2021 - 2025
+                          </div>
+                        </li>
+                        <li className="pb-4 sm:pb-5 border-b border-gray-700">
+                          <span className="font-semibold text-white text-lg sm:text-xl">
+                            Intermediate (MPC)
+                          </span>
+                          <div className="text-sm sm:text-base text-gray-400 mt-1">
+                            ABC Junior College, 2019 - 2021
+                          </div>
+                        </li>
+                        <li>
+                          <span className="font-semibold text-white text-lg sm:text-xl">
+                            SSC
+                          </span>
+                          <div className="text-sm sm:text-base text-gray-400 mt-1">
+                            DEF High School, 2018 - 2019
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Skills */}
-<section
-  id="skills"
-  className="px-2 sm:px-4 py-10 max-w-5xl mx-auto min-h-[600px] flex flex-col justify-center"
->
-  <div className="animate-fade-in-up">
-    <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-6 sm:mb-8 text-center text-gray-800 dark:text-white">
-      My <span className="text-blue-600 dark:text-blue-400">Skills</span>
-    </h2>
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mt-8 sm:mt-12">
-      {/* Frontend Card */}
-      <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 border border-gray-100 dark:border-gray-700">
-        <div className="flex items-center mb-4">
-          <div className="p-2 bg-blue-100 dark:bg-blue-900 rounded-lg mr-4">
-            <svg className="w-6 h-6 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-            </svg>
-          </div>
-          <h3 className="text-xl font-semibold text-gray-800 dark:text-white">Frontend</h3>
-        </div>
-        <ul className="space-y-2 text-gray-600 dark:text-gray-300">
-          <li className="flex items-center"><span className="w-2 h-2 bg-blue-500 rounded-full mr-2"></span> React.js</li>
-          <li className="flex items-center"><span className="w-2 h-2 bg-blue-500 rounded-full mr-2"></span> Next.js</li>
-          <li className="flex items-center"><span className="w-2 h-2 bg-blue-500 rounded-full mr-2"></span> HTML5, CSS3, JavaScript</li>
-          <li className="flex items-center"><span className="w-2 h-2 bg-blue-500 rounded-full mr-2"></span> Tailwind CSS</li>
-        </ul>
-      </div>
+      <section
+        id="skills"
+        className="bg-black relative px-2 sm:px-4 py-10 max-w-full mx-auto min-h-[600px] flex flex-col justify-center overflow-hidden"
+      >
+        {/* <Spotlight></Spotlight> */}
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-6 sm:mb-8 text-center text-gray-800 dark:text-white">
+            My{" "}
+            <span className="text-green-500 dark:text-emerald-400">
+              Skills
+            </span>
+          </h2>
+        <div className="relative z-10 animate-fade-in-up flex justify-center w-full">
+          <div className="bg-emerald-50 dark:bg-black p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 border border-emerald-100 dark:border-gray-700 mx-auto w-full max-w-3xl flex justify-center">
+     
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="space-y-6">
+                <div>
+                  <h3 className="text-lg font-semibold text-gray-800 dark:text-white mb-3 flex items-center">
+                    <div className="p-2 bg-emerald-100 dark:bg-emerald-900 rounded-lg mr-3">
+                      <svg
+                        className="w-5 h-5 text-emerald-600 dark:text-emerald-400"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                        />
+                      </svg>
+                    </div>
+                    Frontend
+                  </h3>
+                  <ul className="space-y-2 text-gray-600 dark:text-gray-300 pl-11">
+                    <li className="flex items-center">
+                      <img
+                        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
+                        className="w-4 h-4 mr-2"
+                        alt="React"
+                      />
+                      React.js
+                    </li>
+                    <li className="flex items-center">
+                      <img
+                        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg"
+                        className="w-4 h-4 mr-2"
+                        alt="Next.js"
+                      />
+                      Next.js
+                    </li>
+                    <li className="flex items-center">
+                      <img
+                        src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Tailwind_CSS_Logo.svg/2560px-Tailwind_CSS_Logo.svg.png"
+                        className="w-4 h-4 mr-2"
+                        alt="Tailwind"
+                      />
+                      Tailwind CSS
+                    </li>
+                    <li className="flex items-center">
+                      <div className="flex items-center mr-2">
+                        <img
+                          src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
+                          className="w-4 h-4"
+                          alt="JavaScript"
+                        />
+                      </div>
+                      JS
+                    </li>
+                  </ul>
+                </div>
 
-      {/* Backend Card */}
-      <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 border border-gray-100 dark:border-gray-700">
-        <div className="flex items-center mb-4">
-          <div className="p-2 bg-purple-100 dark:bg-purple-900 rounded-lg mr-4">
-            <svg className="w-6 h-6 text-purple-600 dark:text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01" />
-            </svg>
-          </div>
-          <h3 className="text-xl font-semibold text-gray-800 dark:text-white">Backend & DB</h3>
-        </div>
-        <ul className="space-y-2 text-gray-600 dark:text-gray-300">
-          <li className="flex items-center"><span className="w-2 h-2 bg-purple-500 rounded-full mr-2"></span> Node.js</li>
-          <li className="flex items-center"><span className="w-2 h-2 bg-purple-500 rounded-full mr-2"></span> Express.js</li>
-          <li className="flex items-center"><span className="w-2 h-2 bg-purple-500 rounded-full mr-2"></span> MongoDB</li>
-          <li className="flex items-center"><span className="w-2 h-2 bg-purple-500 rounded-full mr-2"></span> REST APIs</li>
-        </ul>
-      </div>
+                <div>
+                  <h3 className="text-lg font-semibold text-gray-800 dark:text-white mb-3 flex items-center">
+                    <div className="p-2 bg-blue-100 dark:bg-blue-900 rounded-lg mr-3">
+                      <svg
+                        className="w-5 h-5 text-blue-600 dark:text-blue-400"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01"
+                        />
+                      </svg>
+                    </div>
+                    Backend & DB
+                  </h3>
+                  <ul className="space-y-2 text-gray-600 dark:text-gray-300 pl-11">
+                    <li className="flex items-center">
+                      <img
+                        src="https://download.logo.wine/logo/MySQL/MySQL-Logo.wine.png"
+                        className="w-4 h-4 mr-2"
+                        alt="Node.js"
+                      />
+                      My Sql
+                    </li>
+                    <li className="flex items-center">
+                      <img
+                        src="https://img.icons8.com/color/512/express-js.png"
+                        className="w-4 h-4 mr-2"
+                        alt="Express"
+                      />
+                      Express.js
+                    </li>
+                    <li className="flex items-center">
+                      <img
+                        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg"
+                        className="w-4 h-4 mr-2"
+                        alt="MongoDB"
+                      />
+                      MongoDB
+                    </li>
+                  </ul>
+                </div>
+              </div>
 
-      {/* AI & Data Science Card */}
-      <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 border border-gray-100 dark:border-gray-700">
-        <div className="flex items-center mb-4">
-          <div className="p-2 bg-green-100 dark:bg-green-900 rounded-lg mr-4">
-            <svg className="w-6 h-6 text-green-600 dark:text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-            </svg>
+              <div className="space-y-6">
+                <div>
+                  <h3 className="text-lg font-semibold text-gray-800 dark:text-white mb-3 flex items-center">
+                    <div className="p-2 bg-orange-100 dark:bg-orange-900 rounded-lg mr-3">
+                      <svg
+                        className="w-5 h-5 text-orange-600 dark:text-orange-400"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"
+                        />
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+                        />
+                      </svg>
+                    </div>
+                    Tools
+                  </h3>
+                  <ul className="space-y-2 text-gray-600 dark:text-gray-300 pl-11">
+                    <li className="flex items-center">
+                      <img
+                        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg"
+                        className="w-4 h-4 mr-2"
+                        alt="Git"
+                      />
+                      Git & GitHub
+                    </li>
+                    <li className="flex items-center">
+                      <img
+                        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg"
+                        className="w-4 h-4 mr-2"
+                        alt="VS Code"
+                      />
+                      VS Code
+                    </li>
+                    <li className="flex items-center">
+                      <img
+                        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg"
+                        className="w-4 h-4 mr-2"
+                        alt="Postman"
+                      />
+                      Postman
+                    </li>
+                    <li className="flex items-center">
+                      <img
+                        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg"
+                        className="w-4 h-4 mr-2"
+                        alt="Figma"
+                      />
+                      Figma (Basics)
+                    </li>
+                  </ul>
+                </div>
+                <div>
+                  <h3 className="text-lg font-semibold text-gray-800 dark:text-white mb-3 flex items-center">
+                    <div className="p-2 bg-purple-100 dark:bg-purple-900 rounded-lg mr-3">
+                      <svg
+                        className="w-5 h-5 text-purple-600 dark:text-purple-400"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
+                        />
+                      </svg>
+                    </div>
+                    Programming languages
+                  </h3>
+                  <ul className="space-y-2 text-gray-600 dark:text-gray-300 pl-11">
+                    <li className="flex items-center">
+                      <img
+                        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"
+                        className="w-4 h-4 mr-2"
+                        alt="Python"
+                      />
+                      Python
+                    </li>
+                    <li className="flex items-center">
+                      <img
+                        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
+                        className="w-4 h-4 mr-2"
+                        alt="ML"
+                      />
+                      java script
+                    </li>
+                    <li className="flex items-center">
+                      <img
+                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQaZWkwcHK_g5_g3yZpEu9W-4bWwpX4wzzWBA&s"
+                        className="w-4 h-4 mr-2"
+                        alt="Data"
+                      />
+                      java
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
           </div>
-          <h3 className="text-xl font-semibold text-gray-800 dark:text-white">AI & Data</h3>
         </div>
-        <ul className="space-y-2 text-gray-600 dark:text-gray-300">
-          <li className="flex items-center"><span className="w-2 h-2 bg-green-500 rounded-full mr-2"></span> Python (NumPy, Pandas)</li>
-          <li className="flex items-center"><span className="w-2 h-2 bg-green-500 rounded-full mr-2"></span> Machine Learning</li>
-          <li className="flex items-center"><span className="w-2 h-2 bg-green-500 rounded-full mr-2"></span> Data Analysis</li>
-        </ul>
-      </div>
-
-      {/* Tools Card */}
-      <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 border border-gray-100 dark:border-gray-700">
-        <div className="flex items-center mb-4">
-          <div className="p-2 bg-yellow-100 dark:bg-yellow-900 rounded-lg mr-4">
-            <svg className="w-6 h-6 text-yellow-600 dark:text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-            </svg>
-          </div>
-          <h3 className="text-xl font-semibold text-gray-800 dark:text-white">Tools</h3>
-        </div>
-        <ul className="space-y-2 text-gray-600 dark:text-gray-300">
-          <li className="flex items-center"><span className="w-2 h-2 bg-yellow-500 rounded-full mr-2"></span> Git & GitHub</li>
-          <li className="flex items-center"><span className="w-2 h-2 bg-yellow-500 rounded-full mr-2"></span> VS Code</li>
-          <li className="flex items-center"><span className="w-2 h-2 bg-yellow-500 rounded-full mr-2"></span> Postman</li>
-          <li className="flex items-center"><span className="w-2 h-2 bg-yellow-500 rounded-full mr-2"></span> Figma (Basics)</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
+      </section>
       {/* Projects */}
       <section
         id="projects"
-        className="px-8 py-16 max-w-5xl mx-auto animate-fade-in-up h-[620px]"
+        className="px-4 sm:px-8 bg-black py-16 max-w-7xl mx-auto animate-fade-in-up min-h-[620px]"
       >
-        <h2 className="text-2xl font-bold mb-6">Projects</h2>
+        <h2 className="text-3xl sm:text-4xl font-bold mb-10 text-center text-white">Projects</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Project 1 */}
-          <div className="bg-white dark:bg-gray-900 rounded-lg shadow-md p-4 flex flex-col items-center hover:scale-105 transition-transform">
-            <div className="w-full h-32 bg-gray-100 dark:bg-gray-800 rounded mb-4 flex items-center justify-center">
-              {/* Placeholder for project image */}
-              <span className="text-4xl text-gray-300 dark:text-gray-500">
-                🛒
-              </span>
+          <div className="bg-gray-900 rounded-2xl shadow-lg p-6 flex flex-col items-center border border-gray-800 hover:shadow-2xl transition-all">
+            <img src="/images/ecommerce.jpg" alt="eCommerce Website" className="w-full h-40 object-cover rounded-xl mb-4" />
+            <h3 className="font-semibold text-lg mb-2 text-white">eCommerce Website 🛒</h3>
+            <p className="text-gray-300 text-sm mb-4 text-center">A full-featured online store with user authentication, product management, and a shopping cart.</p>
+            <div className="flex gap-3 mt-auto">
+              <a href="https://github.com/swamyrayudu/ecommerce" target="_blank" rel="noopener noreferrer" className="px-4 py-2 rounded-lg bg-gray-800 text-white font-semibold hover:bg-gray-700 transition">GitHub</a>
+              <a href="https://ecommerce-demo.com" target="_blank" rel="noopener noreferrer" className="px-4 py-2 rounded-lg bg-green-500 text-white font-semibold hover:bg-green-600 transition">Live Demo</a>
             </div>
-            <h3 className="font-semibold text-lg mb-2">eCommerce Website</h3>
-            <p className="text-gray-700 dark:text-gray-300 text-sm mb-2">
-              A full-featured online store with user authentication, product
-              management, and a shopping cart.
-            </p>
-            <a
-              href="#"
-              className="text-blue-600 dark:text-blue-400 hover:underline"
-            >
-              View Project
-            </a>
           </div>
           {/* Project 2 */}
-          <div className="bg-white dark:bg-gray-900 rounded-lg shadow-md p-4 flex flex-col items-center hover:scale-105 transition-transform">
-            <div className="w-full h-32 bg-gray-100 dark:bg-gray-800 rounded mb-4 flex items-center justify-center">
-              <span className="text-4xl text-gray-300 dark:text-gray-500">
-                🍎
-              </span>
+          <div className="bg-gray-900 rounded-2xl shadow-lg p-6 flex flex-col items-center border border-gray-800 hover:shadow-2xl transition-all">
+            <img src="/images/calorie.jpg" alt="Calorie Calculator" className="w-full h-40 object-cover rounded-xl mb-4" />
+            <h3 className="font-semibold text-lg mb-2 text-white">Food Search Calorie Calculator 🍎</h3>
+            <p className="text-gray-300 text-sm mb-4 text-center">Search foods and get calorie information using a simple, user-friendly interface.</p>
+            <div className="flex gap-3 mt-auto">
+              <a href="https://github.com/swamyrayudu/calorie-tracker" target="_blank" rel="noopener noreferrer" className="px-4 py-2 rounded-lg bg-gray-800 text-white font-semibold hover:bg-gray-700 transition">GitHub</a>
+              <a href="https://calorie-demo.com" target="_blank" rel="noopener noreferrer" className="px-4 py-2 rounded-lg bg-green-500 text-white font-semibold hover:bg-green-600 transition">Live Demo</a>
             </div>
-            <h3 className="font-semibold text-lg mb-2">
-              Food Search Calorie Calculator
-            </h3>
-            <p className="text-gray-700 dark:text-gray-300 text-sm mb-2">
-              Search foods and get calorie information using a simple,
-              user-friendly interface.
-            </p>
-            <a
-              href="#"
-              className="text-blue-600 dark:text-blue-400 hover:underline"
-            >
-              View Project
-            </a>
           </div>
           {/* Project 3 */}
-          <div className="bg-white dark:bg-gray-900 rounded-lg shadow-md p-4 flex flex-col items-center hover:scale-105 transition-transform">
-            <div className="w-full h-32 bg-gray-100 dark:bg-gray-800 rounded mb-4 flex items-center justify-center">
-              <span className="text-4xl text-gray-300 dark:text-gray-500">
-                ✍️
-              </span>
+          <div className="bg-gray-900 rounded-2xl shadow-lg p-6 flex flex-col items-center border border-gray-800 hover:shadow-2xl transition-all">
+            <img src="/images/blog.jpg" alt="Blog Platform" className="w-full h-40 object-cover rounded-xl mb-4" />
+            <h3 className="font-semibold text-lg mb-2 text-white">Blog Platform ✍️</h3>
+            <p className="text-gray-300 text-sm mb-4 text-center">A simple blog platform to write, edit, and share posts with others.</p>
+            <div className="flex gap-3 mt-auto">
+              <a href="https://github.com/swamyrayudu/blog-platform" target="_blank" rel="noopener noreferrer" className="px-4 py-2 rounded-lg bg-gray-800 text-white font-semibold hover:bg-gray-700 transition">GitHub</a>
+              <a href="https://blog-demo.com" target="_blank" rel="noopener noreferrer" className="px-4 py-2 rounded-lg bg-green-500 text-white font-semibold hover:bg-green-600 transition">Live Demo</a>
             </div>
-            <h3 className="font-semibold text-lg mb-2">Blog Platform</h3>
-            <p className="text-gray-700 dark:text-gray-300 text-sm mb-2">
-              A simple blog platform to write, edit, and share posts with
-              others.
-            </p>
-            <a
-              href="#"
-              className="text-blue-600 dark:text-blue-400 hover:underline"
-            >
-              View Project
-            </a>
           </div>
         </div>
       </section>
@@ -557,60 +716,64 @@ export default function Home() {
       {/* Contact */}
       <section
         id="contact"
-        className="px-8 py-16 max-w-5xl mx-auto animate-fade-in-up"
+        className="bg-black px-4 sm:px-8 py-16 max-w-4xl mx-auto animate-fade-in-up rounded-2xl shadow-lg border border-gray-800 mt-16"
       >
-        <h2 className="text-2xl font-bold mb-6">Contact</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <form className="bg-white dark:bg-gray-900 rounded-lg shadow-md p-6 flex flex-col gap-4">
+        <h2 className="text-3xl sm:text-4xl font-bold mb-10 text-center text-white">Contact</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+          <form className="bg-gray-900 rounded-2xl shadow-md p-8 flex flex-col gap-5 border border-gray-800">
             <input
               type="text"
               placeholder="Your Name"
-              className="border border-gray-300 dark:border-gray-700 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-200 dark:bg-gray-800 dark:text-gray-100"
+              className="border border-gray-700 rounded px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-400 bg-gray-800 text-gray-100"
               required
             />
             <input
               type="email"
               placeholder="Your Email"
-              className="border border-gray-300 dark:border-gray-700 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-200 dark:bg-gray-800 dark:text-gray-100"
+              className="border border-gray-700 rounded px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-400 bg-gray-800 text-gray-100"
               required
             />
             <textarea
               placeholder="Your Message"
-              className="border border-gray-300 dark:border-gray-700 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-200 dark:bg-gray-800 dark:text-gray-100"
-              rows={4}
+              className="border border-gray-700 rounded px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-400 bg-gray-800 text-gray-100"
+              rows={5}
               required
             ></textarea>
             <button
               type="submit"
-              className="bg-blue-600 dark:bg-blue-700 text-white rounded px-4 py-2 font-semibold hover:bg-blue-700 dark:hover:bg-blue-800 transition"
+              className="bg-green-500 text-white rounded px-6 py-3 font-semibold hover:bg-green-600 transition"
             >
-              Send
+              Send Message
             </button>
           </form>
-          <div className="flex flex-col gap-4 justify-center">
+          <div className="flex flex-col gap-6 justify-center bg-gray-900 rounded-2xl shadow-md p-8 border border-gray-800">
             <div>
-              <span className="font-semibold">Email:</span>{" "}
+              <span className="font-semibold text-white">Email:</span>{" "}
               <a
                 href="mailto:swamy@email.com"
-                className="text-blue-600 dark:text-blue-400 hover:underline"
+                className="text-green-400 hover:underline"
               >
                 swamy@email.com
               </a>
             </div>
             <div>
-              <span className="font-semibold">Phone:</span>{" "}
+              <span className="font-semibold text-white">Phone:</span>{" "}
               <a
                 href="tel:+911234567890"
-                className="text-blue-600 dark:text-blue-400 hover:underline"
+                className="text-green-400 hover:underline"
               >
                 +91 12345 67890
               </a>
+            </div>
+            <div>
+              <span className="font-semibold text-white">Location:</span>{" "}
+              <span className="text-gray-300">Andhra Pradesh, India</span>
             </div>
           </div>
         </div>
       </section>
       {/* Footer */}
-      <footer className="text-center text-gray-500 dark:text-gray-400 py-6 mt-8">
+      <footer className="bg-black text-center text-gray-500 dark:text-gray-400 py-6 ">
         &copy; {new Date().getFullYear()} RVV Swamy. All rights reserved.
       </footer>
     </main>
