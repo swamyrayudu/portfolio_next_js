@@ -22,8 +22,7 @@ import {
   SheetTitle,
   SheetDescription,
 } from "@/components/ui/sheet";
-import { useState } from "react";
-import { useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { HoverEffect } from "@/components/ui/card-hover-effect";
 
 export default function Home() {
@@ -51,8 +50,51 @@ export default function Home() {
       text: "Developer.",
     },
   ];
+
+  // Enable smooth scroll for anchor links
+  useEffect(() => {
+    document.documentElement.style.scrollBehavior = "smooth";
+    // Fast scroll-to-top effect on refresh
+    if (performance && performance.navigation && performance.navigation.type === 1) {
+      // Only on reload, not on normal navigation
+      window.scrollTo({ top: 0, behavior: "auto" });
+    } else if (performance && performance.getEntriesByType) {
+      // For browsers using Navigation Timing Level 2
+      const navEntries = performance.getEntriesByType("navigation");
+      if (
+        navEntries.length &&
+        'type' in navEntries[0] &&
+        (navEntries[0] as PerformanceNavigationTiming).type === "reload"
+      ) {
+        window.scrollTo({ top: 0, behavior: "auto" });
+      }
+    }
+    return () => {
+      document.documentElement.style.scrollBehavior = "";
+    };
+  }, []);
+   
   return (
     <main className="min-h-screen bg-gray-50 dark:bg-gray-950 text-gray-900 dark:text-gray-100 font-sans transition-colors duration-300">
+      {/* Smooth scroll polyfill for browsers that do not support it */}
+      <script dangerouslySetInnerHTML={{
+        __html: `
+          document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+              anchor.addEventListener('click', function(e) {
+                const hash = this.getAttribute('href');
+                if (hash && hash.startsWith('#')) {
+                  const target = document.querySelector(hash);
+                  if (target) {
+                    e.preventDefault();
+                    target.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }
+              });
+            });
+          });
+        `
+      }} />
       {/* Navigation */}
       <nav className="h-[64px] flex justify-between items-center px-4 md:px-8 bg-black dark:bg-black fixed top-0 left-0 w-full z-30 border-b border-gray-900/80">
         {/* Logo */}
