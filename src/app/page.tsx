@@ -757,12 +757,20 @@ export default function Home() {
             </p>
             <div className="flex gap-3 mt-auto">
               <a
-                href="https://github.com/swamyrayudu/"
+                href="https://github.com/swamyrayudu/chat_bot_react"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="px-4 py-2 rounded-lg bg-gray-800 text-white font-semibold hover:bg-gray-700 transition"
               >
-                coming soon
+                GitHub
+              </a>
+              <a
+                href="https://chat-bot-ai-git-main-swamyrayudus-projects.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-4 py-2 rounded-lg bg-green-500 text-white font-semibold hover:bg-green-600 transition"
+              >
+                Live Demo
               </a>
             </div>
           </div>
