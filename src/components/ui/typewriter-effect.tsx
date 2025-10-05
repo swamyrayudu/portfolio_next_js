@@ -1,8 +1,8 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import { motion, stagger, useAnimate, useInView } from "motion/react";
-import { useEffect } from "react";
+import { motion, stagger, useAnimate, useInView } from "framer-motion";
+import { useState, useEffect } from "react";
 
 export const TypewriterEffect = ({
   words,
@@ -24,10 +24,16 @@ export const TypewriterEffect = ({
     };
   });
 
+  const [mounted, setMounted] = useState(false);
   const [scope, animate] = useAnimate();
   const isInView = useInView(scope);
+
   useEffect(() => {
-    if (isInView) {
+    setMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (mounted && isInView) {
       animate(
         "span",
         {
@@ -42,7 +48,7 @@ export const TypewriterEffect = ({
         }
       );
     }
-  }, [isInView]);
+  }, [mounted, isInView, animate]);
 
   const renderWords = () => {
     return (
