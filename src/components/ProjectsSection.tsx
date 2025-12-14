@@ -20,9 +20,21 @@ const ProjectsSection = () => {
     "API Integration": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg",
     "AI/ML": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg",
     API: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg",
+    TypeScript: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg",
+    "Next.js": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg",
+    PostgreSQL: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg",
   };
 
   const projects = [
+    {
+      title: "TalentPath",
+      image: "/images/talentpath.png",
+      description:
+        "Comprehensive platform for mastering your tech career with problem-solving practice, contests, interview preparation, and job opportunities all in one place.",
+      tech: ["TypeScript", "Next.js", "PostgreSQL"],
+      github: "https://github.com/swamyrayudu/TalentPath",
+      live: "https://talentpath.vercel.app/",
+    },
     {
       title: "eCommerce Website",
       image: "/images/ecom.png.png",

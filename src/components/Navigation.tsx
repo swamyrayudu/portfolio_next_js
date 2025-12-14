@@ -13,6 +13,7 @@ import {
   SheetTitle,
   SheetDescription,
 } from "@/components/ui/sheet";
+import { ColorThemeToggle } from "@/components/ui/color-theme-toggle";
 
 const Navigation = () => {
   const [sheetOpen, setSheetOpen] = useState(false);
@@ -80,13 +81,10 @@ const Navigation = () => {
   };
 
   return (
-    <motion.nav
-      initial={{ y: -100, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
+    <nav
       className={`h-[64px] flex justify-between items-center px-4 md:px-8 fixed top-0 left-0 w-full z-30 transition-all duration-300 bg-background/80 backdrop-blur-md ${
         isScrolled
-          ? "border-b border-primary/30 shadow-lg shadow-primary/10"
+          ? "border-b border-border shadow-lg shadow-black/10"
           : "border-b border-border"
       }`}
     >
@@ -98,29 +96,25 @@ const Navigation = () => {
             handleNavClick("#home");
           }}
         >
-          <motion.img
-            whileHover={{ scale: 1.08, rotate: 5 }}
-            whileTap={{ scale: 0.95 }}
-            transition={{ type: "spring", stiffness: 400, damping: 17 }}
+          <img
             src="/images/rs.jpg"
             alt="SWAMY"
             className={`w-10 h-10 rounded-full object-cover border-2 shadow-md transition-all duration-300 ${
               isScrolled
-                ? "border-primary shadow-primary/30"
-                : "border-primary"
+                ? "border-border shadow-black/20"
+                : "border-border"
             }`}
             style={{ objectPosition: "center top" }}
           />
         </a>
-        <motion.div
-          initial={{ opacity: 0, x: -10 }}
-          animate={{ opacity: isScrolled ? 1 : 0, x: isScrolled ? 0 : -10 }}
-          transition={{ duration: 0.3 }}
-          className="ml-1"
+        <div
+          className={`ml-1 transition-opacity duration-300 ${
+            isScrolled ? "opacity-100" : "opacity-0"
+          }`}
         >
           <p className="text-foreground font-bold text-base">RVV Swamy</p>
-          <p className="text-primary text-xs">Full Stack Developer</p>
-        </motion.div>
+          <p className="text-muted-foreground text-xs">Full Stack Developer</p>
+        </div>
       </div>
 
       <div className="hidden md:flex items-center gap-4">
@@ -128,12 +122,7 @@ const Navigation = () => {
           {navItems.map((item, index) => {
             const isActive = activeSection === item.href.substring(1);
             return (
-              <motion.li
-                key={item.href}
-                initial={{ y: -20, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ delay: index * 0.1, duration: 0.4 }}
-              >
+              <li key={item.href}>
                 <a
                   href={item.href}
                   onClick={(e) => {
@@ -147,44 +136,33 @@ const Navigation = () => {
                   }`}
                 >
                   {item.label}
-                  <motion.span
-                    initial={false}
-                    animate={{
-                      width: isActive ? "100%" : "0%",
-                    }}
-                    transition={{ duration: 0.3 }}
-                    className="absolute -bottom-1 left-0 h-0.5 bg-primary"
-                  />
                   <span
                     className={`absolute -bottom-1 left-0 h-0.5 bg-primary transition-all duration-300 ${
-                      isActive ? "w-0" : "w-0 group-hover:w-full"
+                      isActive ? "w-full" : "w-0 group-hover:w-full"
                     }`}
                   />
                   
                   {isActive && (
-                    <motion.span
-                      layoutId="activeIndicator"
-                      className="absolute -top-2 left-1/2 transform -translate-x-1/2 w-1.5 h-1.5 bg-primary rounded-full"
-                      transition={{ type: "spring", stiffness: 380, damping: 30 }}
-                    />
+                    <span className="absolute -top-2 left-1/2 transform -translate-x-1/2 w-1.5 h-1.5 bg-primary rounded-full" />
                   )}
                 </a>
-              </motion.li>
+              </li>
             );
           })}
           
+          {/* Color Theme Toggle - Desktop */}
+          {mounted && (
+            <li>
+              <ColorThemeToggle />
+            </li>
+          )}
+
           {/* Theme Toggle Button - Desktop */}
           {mounted && (
-            <motion.li
-              initial={{ y: -20, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ delay: navItems.length * 0.1, duration: 0.4 }}
-            >
-              <motion.button
+            <li>
+              <button
                 onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
                 className="p-2 rounded-lg bg-secondary hover:bg-secondary/80 transition-all duration-300"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
                 aria-label="Toggle theme"
               >
                 {theme === "dark" ? (
@@ -192,21 +170,15 @@ const Navigation = () => {
                 ) : (
                   <Moon className="h-4 w-4 text-foreground" />
                 )}
-              </motion.button>
-            </motion.li>
+              </button>
+            </li>
           )}
 
-          <motion.li
-            initial={{ y: -20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: (navItems.length + 1) * 0.1, duration: 0.4 }}
-          >
-            <motion.a
+          <li>
+            <a
               href="https://drive.google.com/file/d/1vVzYcIq625ZKG277oOP_ohtjsMiNANiU/view?usp=drivesdk"
               className="px-4 py-2 rounded-lg bg-primary text-primary-foreground text-sm font-semibold hover:bg-primary/90 transition-all duration-300 flex items-center gap-1.5 shadow-md"
               target="_blank"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
             >
               Resume
               <svg
@@ -223,19 +195,20 @@ const Navigation = () => {
                   d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
                 />
               </svg>
-            </motion.a>
-          </motion.li>
+            </a>
+          </li>
         </ul>
       </div>
 
       <div className="flex md:hidden items-center gap-3">
+        {/* Color Theme Toggle - Mobile */}
+        {mounted && <ColorThemeToggle />}
+
         {/* Theme Toggle Button - Mobile */}
         {mounted && (
-          <motion.button
+          <button
             onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
             className="p-2 rounded-lg bg-secondary hover:bg-secondary/80 transition-all duration-300"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
             aria-label="Toggle theme"
           >
             {theme === "dark" ? (
@@ -243,14 +216,12 @@ const Navigation = () => {
             ) : (
               <Moon className="h-4 w-4 text-foreground" />
             )}
-          </motion.button>
+          </button>
         )}
 
         <Sheet open={sheetOpen} onOpenChange={setSheetOpen}>
           <SheetTrigger asChild>
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+            <button
               aria-label="Open menu"
               className={`rounded-lg border p-2 text-foreground focus:outline-none focus:ring-2 focus:ring-primary flex items-center transition-all ${
                 isScrolled
@@ -259,7 +230,7 @@ const Navigation = () => {
               }`}
             >
               <IoMdMenu size={22} />
-            </motion.button>
+            </button>
           </SheetTrigger>
           <SheetContent
             side="left"
@@ -300,16 +271,15 @@ const Navigation = () => {
                 );
               })}
               <div className="mt-4 pt-3 border-t border-border">
-                <motion.a
+                <a
                   target="_blank"
                   href="https://drive.google.com/file/d/1vVzYcIq625ZKG277oOP_ohtjsMiNANiU/view?usp=drivesdk"
                   className="text-sm font-semibold py-2.5 px-3 rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-all flex items-center justify-center gap-2"
                   onClick={() => setSheetOpen(false)}
-                  whileTap={{ scale: 0.95 }}
                 >
                   <FaFileDownload size={14} />
                   Resume
-                </motion.a>
+                </a>
               </div>
             </nav>
             <div className="mt-auto pt-4 text-xs text-muted-foreground text-center border-t border-border">
@@ -318,7 +288,7 @@ const Navigation = () => {
           </SheetContent>
         </Sheet>
       </div>
-    </motion.nav>
+    </nav>
   );
 };
 

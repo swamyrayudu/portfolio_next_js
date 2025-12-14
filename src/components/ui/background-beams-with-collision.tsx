@@ -199,7 +199,7 @@ const CollisionMechanism = React.forwardRef<
           repeatDelay: beamOptions.repeatDelay || 0,
         }}
         className={cn(
-          "absolute left-0 top-20 m-auto h-14 w-0.5 rounded-full bg-gradient-to-t from-emerald-500 via-green-500 to-transparent", // Green color gradient
+          "absolute left-0 top-20 m-auto h-14 w-0.5 rounded-full bg-gradient-to-t from-teal-600 via-emerald-600 to-transparent", // Green color gradient
           beamOptions.className
         )}
       />
@@ -238,7 +238,7 @@ const Explosion = ({ ...props }: React.HTMLProps<HTMLDivElement>) => {
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
         transition={{ duration: 1.5, ease: "easeOut" }}
-        className="absolute -inset-x-10 top-0 m-auto h-2 w-10 rounded-full bg-gradient-to-r from-transparent via-emerald-500 to-transparent blur-sm" // Green color
+        className="absolute -inset-x-10 top-0 m-auto h-2 w-10 rounded-full bg-gradient-to-r from-transparent via-teal-600 to-transparent blur-sm" // Green color
       ></motion.div>
       {spans.map((span) => (
         <motion.span
@@ -250,7 +250,7 @@ const Explosion = ({ ...props }: React.HTMLProps<HTMLDivElement>) => {
             opacity: 0,
           }}
           transition={{ duration: Math.random() * 1.5 + 0.5, ease: "easeOut" }}
-          className="absolute h-1 w-1 rounded-full bg-gradient-to-b from-emerald-500 to-green-500" // Green color
+          className="absolute h-1 w-1 rounded-full bg-gradient-to-b from-teal-600 to-emerald-700" // Green color
         />
       ))}
     </div>

@@ -148,7 +148,7 @@ const SkillsSection = () => {
                 {/* Icon with rotation and optional white background */}
                 <motion.div
                   className={`w-12 h-12 flex items-center justify-center relative z-10 ${
-                    skill.needsWhiteBg ? "bg-background rounded-lg p-2" : ""
+                    skill.needsWhiteBg ? "bg-white dark:bg-white rounded-lg p-2" : ""
                   }`}
                   whileHover={{ rotate: 360 }}
                   transition={{ duration: 0.6 }}
@@ -156,7 +156,9 @@ const SkillsSection = () => {
                   <img
                     src={skill.icon}
                     alt={skill.name}
-                    className="w-full h-full object-contain"
+                    className={`w-full h-full object-contain ${
+                      skill.needsWhiteBg ? "dark:invert-0" : ""
+                    }`}
                   />
                 </motion.div>
 
