@@ -176,7 +176,7 @@ const Navigation = () => {
 
           <li>
             <a
-              href="https://drive.google.com/file/d/1vVzYcIq625ZKG277oOP_ohtjsMiNANiU/view?usp=drivesdk"
+              href="https://drive.google.com/file/d/1BSzGPx1PAQdnfbw-MrGcaHuM1_NU6Cvr/view?usp=drivesdk"
               className="px-4 py-2 rounded-lg bg-primary text-primary-foreground text-sm font-semibold hover:bg-primary/90 transition-all duration-300 flex items-center gap-1.5 shadow-md"
               target="_blank"
             >
@@ -273,7 +273,7 @@ const Navigation = () => {
               <div className="mt-4 pt-3 border-t border-border">
                 <a
                   target="_blank"
-                  href="https://drive.google.com/file/d/1vVzYcIq625ZKG277oOP_ohtjsMiNANiU/view?usp=drivesdk"
+                  href="https://drive.google.com/file/d/1BSzGPx1PAQdnfbw-MrGcaHuM1_NU6Cvr/view?usp=drivesdk"
                   className="text-sm font-semibold py-2.5 px-3 rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-all flex items-center justify-center gap-2"
                   onClick={() => setSheetOpen(false)}
                 >
