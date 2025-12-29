@@ -27,7 +27,7 @@ const HeroSection = () => {
       label: "WhatsApp",
     },
     {
-      href: "https://www.instagram.com/swamy__rayudu/",
+      href: "https://www.instagram.com/swamyrayudu/",
       icon: FaInstagram,
       color: "bg-pink-500 hover:bg-pink-600",
       label: "Instagram",

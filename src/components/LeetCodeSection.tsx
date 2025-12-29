@@ -35,7 +35,7 @@ const LeetCodeSection = () => {
           transition={{ duration: 0.7, delay: 0.2 }}
         >
           {/* Use your actual username */}
-          <LeetCodeStats username="swamy__rayudu" />
+          <LeetCodeStats username="swamyrayudu" />
         </motion.div>
       </div>
     </section>

@@ -38,7 +38,7 @@ const ContactSection = () => {
       label: "WhatsApp",
     },
     {
-      href: "https://www.instagram.com/swamy__rayudu/",
+      href: "https://www.instagram.com/swamyrayudu/",
       icon: FaInstagram,
       label: "Instagram",
     },
