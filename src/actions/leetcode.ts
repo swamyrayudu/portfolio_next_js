@@ -25,6 +25,9 @@ interface LeetCodeStats {
     statusDisplay: string;
     lang: string;
   }>;
+  submissionCalendar: Record<string, number>;
+  totalActiveDays: number;
+  streak: number;
 }
 
 export async function fetchLeetCodeProfile(
@@ -53,6 +56,12 @@ export async function fetchLeetCodeProfile(
             badges {
               displayName
               icon
+            }
+            submissionCalendar
+            userCalendar {
+              activeYears
+              streak
+              totalActiveDays
             }
           }
           recentSubmissionList(username: $username, limit: 10) {
@@ -99,6 +108,16 @@ export async function fetchLeetCodeProfile(
       stats.find((s: any) => s.difficulty === "Medium")?.count || 0;
     const hardSolved = stats.find((s: any) => s.difficulty === "Hard")?.count || 0;
 
+    // Parse submission calendar (comes as JSON string)
+    let submissionCalendar: Record<string, number> = {};
+    try {
+      if (user.submissionCalendar) {
+        submissionCalendar = JSON.parse(user.submissionCalendar);
+      }
+    } catch {
+      submissionCalendar = {};
+    }
+
     return {
       totalSolved: allSolved,
       totalQuestions: 3000,
@@ -116,6 +135,9 @@ export async function fetchLeetCodeProfile(
       skillTags: [],
       badges: user.badges || [],
       recentSubmissions: submissions,
+      submissionCalendar,
+      totalActiveDays: user.userCalendar?.totalActiveDays || 0,
+      streak: user.userCalendar?.streak || 0,
     };
   } catch (error) {
     console.error("Error fetching LeetCode profile:", error);
