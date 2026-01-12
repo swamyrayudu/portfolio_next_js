@@ -2,6 +2,7 @@
 import { motion } from "framer-motion";
 import { TypewriterEffect } from "@/components/ui/typewriter-effect";
 import { ContainerTextFlip } from "@/components/ui/container-text-flip";
+import { BackgroundRippleEffect } from "@/components/ui/background-ripple-effect";
 import {
   FaWhatsapp,
   FaInstagram,
@@ -49,8 +50,9 @@ const HeroSection = () => {
   return (
     <section
       id="home"
-      className="relative w-full h-screen flex items-center justify-center overflow-hidden bg-background"
+      className="relative w-full h-screen flex items-center justify-center overflow-hidden bg-gradient-to-b from-background via-background to-background/95"
     >
+      <BackgroundRippleEffect />
 
       <div className="relative z-10 flex flex-col items-center justify-center w-full h-full px-6 sm:px-6 lg:px-8 gap-4 md:gap-5">
         {/* Rotating Badge */}
@@ -106,19 +108,21 @@ const HeroSection = () => {
         >
           <motion.a
             href="#contact"
-            className="px-4 py-2 sm:px-6 sm:py-2.5 bg-primary text-primary-foreground text-xs sm:text-sm font-semibold rounded-lg hover:bg-primary/90 transition-all duration-300 shadow-lg shadow-primary/20 whitespace-nowrap"
+            className="group relative px-4 py-2 sm:px-6 sm:py-2.5 bg-gradient-to-r from-primary to-primary/80 text-primary-foreground text-xs sm:text-sm font-semibold rounded-full hover:shadow-lg hover:shadow-primary/50 transition-all duration-300 whitespace-nowrap overflow-hidden"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            Get In Touch
+            <span className="relative z-10">Get In Touch</span>
+            <span className="absolute inset-0 bg-gradient-to-r from-primary/0 via-white/20 to-primary/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></span>
           </motion.a>
           <motion.a
             href="#projects"
-            className="px-4 py-2 sm:px-6 sm:py-2.5 bg-transparent border border-border text-foreground text-xs sm:text-sm font-semibold rounded-lg hover:border-primary hover:text-primary transition-all duration-300 whitespace-nowrap"
+            className="group relative px-4 py-2 sm:px-6 sm:py-2.5 bg-transparent border-2 border-border text-foreground text-xs sm:text-sm font-semibold rounded-full hover:border-primary hover:text-primary hover:shadow-lg hover:shadow-primary/30 transition-all duration-300 whitespace-nowrap overflow-hidden"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            View Projects
+            <span className="relative z-10">View Projects</span>
+            <span className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></span>
           </motion.a>
         </motion.div>
 

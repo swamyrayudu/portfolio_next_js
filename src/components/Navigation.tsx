@@ -82,11 +82,7 @@ const Navigation = () => {
 
   return (
     <nav
-      className={`h-[64px] flex justify-between items-center px-4 md:px-8 fixed top-0 left-0 w-full z-30 transition-all duration-300 bg-background/80 backdrop-blur-md ${
-        isScrolled
-          ? "border-b border-border shadow-lg shadow-black/10"
-          : "border-b border-border"
-      }`}
+      className="h-[64px] flex justify-between items-center px-4 md:px-8 fixed top-0 left-0 w-full z-30 backdrop-blur-md border-b border-border/30"
     >
       <div className="flex items-center gap-2">
         <a
@@ -99,11 +95,7 @@ const Navigation = () => {
           <img
             src="/images/rs.jpg"
             alt="SWAMY"
-            className={`w-10 h-10 rounded-full object-cover border-2 shadow-md transition-all duration-300 ${
-              isScrolled
-                ? "border-border shadow-black/20"
-                : "border-border"
-            }`}
+            className="w-10 h-10 rounded-full object-cover border-2 border-border shadow-md"
             style={{ objectPosition: "center top" }}
           />
         </a>
@@ -177,13 +169,13 @@ const Navigation = () => {
           <li>
             <a
               href="https://drive.google.com/file/d/1BSzGPx1PAQdnfbw-MrGcaHuM1_NU6Cvr/view?usp=drivesdk"
-              className="px-4 py-2 rounded-lg bg-primary text-primary-foreground text-sm font-semibold hover:bg-primary/90 transition-all duration-300 flex items-center gap-1.5 shadow-md"
+              className="group relative px-4 py-2 rounded-full bg-gradient-to-r from-primary to-primary/80 text-primary-foreground text-sm font-semibold hover:shadow-lg hover:shadow-primary/50 transition-all duration-300 flex items-center gap-1.5 overflow-hidden"
               target="_blank"
             >
-              Resume
+              <span className="relative z-10">Resume</span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-3.5 w-3.5"
+                className="h-3.5 w-3.5 relative z-10 group-hover:translate-y-0.5 transition-transform duration-300"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -195,6 +187,7 @@ const Navigation = () => {
                   d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
                 />
               </svg>
+              <span className="absolute inset-0 bg-gradient-to-r from-primary/0 via-white/20 to-primary/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></span>
             </a>
           </li>
         </ul>

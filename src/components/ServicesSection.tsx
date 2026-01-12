@@ -168,12 +168,12 @@ const ServicesSection = () => {
           </p>
           <a
             href="#contact"
-            className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground font-semibold rounded-lg hover:bg-primary/90 transition-all duration-300 hover:scale-105"
+            className="group relative inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-primary to-primary/80 text-primary-foreground font-semibold rounded-full hover:shadow-lg hover:shadow-primary/50 transition-all duration-300 hover:scale-105 overflow-hidden"
           >
-            Let's Work Together
+            <span className="relative z-10">Let's Work Together</span>
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="h-4 w-4"
+              className="h-4 w-4 relative z-10"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -185,6 +185,7 @@ const ServicesSection = () => {
                 d="M17 8l4 4m0 0l-4 4m4-4H3"
               />
             </svg>
+            <span className="absolute inset-0 bg-gradient-to-r from-primary/0 via-white/20 to-primary/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></span>
           </a>
         </motion.div>
       </div>

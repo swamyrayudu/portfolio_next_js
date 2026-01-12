@@ -162,20 +162,22 @@ const ProjectsSection = () => {
                     href={project.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex-1 flex items-center justify-center gap-1.5 px-3 py-2 bg-secondary text-secondary-foreground text-xs font-medium rounded-lg hover:bg-secondary/80 transition-colors"
+                    className="group relative flex-1 flex items-center justify-center gap-1.5 px-3 py-2 bg-secondary/80 text-secondary-foreground text-xs font-medium rounded-full hover:bg-secondary hover:shadow-md transition-all duration-300 overflow-hidden"
                   >
-                    <FaGithub className="w-3.5 h-3.5" />
-                    Code
+                    <FaGithub className="w-3.5 h-3.5 relative z-10" />
+                    <span className="relative z-10">Code</span>
+                    <span className="absolute inset-0 bg-gradient-to-r from-transparent via-secondary-foreground/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></span>
                   </a>
                   {project.live && (
                     <a
                       href={project.live}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex-1 flex items-center justify-center gap-1.5 px-3 py-2 bg-primary text-primary-foreground text-xs font-medium rounded-lg hover:bg-primary/90 transition-colors"
+                      className="group relative flex-1 flex items-center justify-center gap-1.5 px-3 py-2 bg-gradient-to-r from-primary to-primary/80 text-primary-foreground text-xs font-medium rounded-full hover:shadow-lg hover:shadow-primary/50 transition-all duration-300 overflow-hidden"
                     >
-                      <FaExternalLinkAlt className="w-3 h-3" />
-                      Live
+                      <FaExternalLinkAlt className="w-3 h-3 relative z-10" />
+                      <span className="relative z-10">Live</span>
+                      <span className="absolute inset-0 bg-gradient-to-r from-primary/0 via-white/20 to-primary/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></span>
                     </a>
                   )}
                 </div>
