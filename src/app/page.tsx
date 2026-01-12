@@ -6,7 +6,6 @@ import AboutSection from "@/components/AboutSection";
 import SkillsSection from "@/components/SkillsSection";
 import LeetCodeSection from "@/components/LeetCodeSection"; // NEW
 import ProjectsSection from "@/components/ProjectsSection";
-import ServicesSection from "@/components/ServicesSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 
@@ -40,7 +39,6 @@ export default function Home() {
       <SkillsSection />
       <LeetCodeSection /> {/* NEW SECTION */}
       <ProjectsSection />
-      <ServicesSection />
       <ContactSection />
       <Footer />
     </main>

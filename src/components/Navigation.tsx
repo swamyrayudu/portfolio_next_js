@@ -30,7 +30,6 @@ const Navigation = () => {
     { href: "#skills", label: "Skills" },
     { href: "#leetcode", label: "LeetCode" },
     { href: "#projects", label: "Projects" },
-    { href: "#services", label: "Services" },
     { href: "#contact", label: "Contact Me" },
   ];
 
