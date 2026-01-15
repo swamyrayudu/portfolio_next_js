@@ -4,6 +4,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { ColorThemeProvider } from "@/contexts/ColorThemeContext";
+import CursorEffect from "@/components/CursorEffect";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -32,7 +33,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head />
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased cursor-none`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
@@ -40,6 +41,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <ColorThemeProvider>
+            <CursorEffect />
             {children}
           </ColorThemeProvider>
         </ThemeProvider>

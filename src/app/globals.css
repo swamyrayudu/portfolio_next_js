@@ -191,3 +191,32 @@
 .animate-cell-ripple {
   animation: cell-ripple var(--duration, 300ms) ease-out var(--delay, 0ms);
 }
+
+/* Custom Cursor Beam Styles */
+.cursor-none {
+  cursor: none !important;
+}
+
+.cursor-none * {
+  cursor: none !important;
+}
+
+/* Smooth cursor following for interactive elements */
+.cursor-none a,
+.cursor-none button,
+.cursor-none [role="button"],
+.cursor-none input,
+.cursor-none textarea,
+.cursor-none select {
+  cursor: none !important;
+}
+
+/* Hide cursor on mobile/touch devices */
+@media (hover: none) and (pointer: coarse) {
+  .cursor-none {
+    cursor: auto !important;
+  }
+  .cursor-none * {
+    cursor: auto !important;
+  }
+}
