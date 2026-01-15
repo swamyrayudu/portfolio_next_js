@@ -1,8 +1,9 @@
 "use client";
 import { motion } from "framer-motion";
-import { TypewriterEffect } from "@/components/ui/typewriter-effect";
 import { ContainerTextFlip } from "@/components/ui/container-text-flip";
 import { BackgroundRippleEffect } from "@/components/ui/background-ripple-effect";
+import { useRef } from "react";
+import { useInView } from "framer-motion";
 import {
   FaWhatsapp,
   FaInstagram,
@@ -11,14 +12,8 @@ import {
 } from "react-icons/fa";
 
 const HeroSection = () => {
-  const words = [
-    { text: "Hi," },
-    { text: "I'm" },
-    { text: "RVV", className: "text-primary" },
-    { text: "Swamy.", className: "text-primary" },
-    { text: "Full-Stack" },
-    { text: "Developer." },
-  ];
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: false, margin: "-50px" });
 
   const socialLinks = [
     {
@@ -49,16 +44,17 @@ const HeroSection = () => {
 
   return (
     <section
+      ref={ref}
       id="home"
       className="relative w-full h-screen flex items-center justify-center overflow-hidden bg-gradient-to-b from-background via-background to-background/95"
     >
       <BackgroundRippleEffect />
 
-      <div className="relative z-10 flex flex-col items-center justify-center w-full h-full px-6 sm:px-6 lg:px-8 gap-4 md:gap-5">
+      <div className="relative z-10 flex flex-col items-center justify-center w-full h-full px-4 sm:px-6 lg:px-8 gap-6 md:gap-8 max-w-7xl mx-auto">
         {/* Rotating Badge */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
+          initial={{ opacity: 0, scale: 0.9, y: 30 }}
+          animate={isInView ? { opacity: 1, scale: 1, y: 0 } : { opacity: 0, scale: 0.9, y: 30 }}
           transition={{ duration: 0.5 }}
         >
           <ContainerTextFlip
@@ -69,28 +65,32 @@ const HeroSection = () => {
               "Problem Solver",
               "Innovative",
             ]}
-            className="px-3 py-1 sm:px-4 sm:py-1.5 rounded-full bg-primary/10 border border-primary/30 text-primary text-[10px] sm:text-xs font-medium tracking-wide inline-flex items-center justify-center"
-            textClassName="text-primary text-[10px] sm:text-xs font-semibold uppercase text-center whitespace-nowrap"
+            className="px-4 py-2 sm:px-6 sm:py-2.5 rounded-full bg-primary/5 border border-primary/20 text-primary text-xs sm:text-sm font-medium tracking-wider inline-flex items-center justify-center shadow-sm"
+            textClassName="text-primary text-xs sm:text-sm font-semibold uppercase text-center whitespace-nowrap"
             animationDuration={500}
             interval={2000}
           />
         </motion.div>
 
-        {/* Main Heading with Typewriter */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+        {/* Main Heading */}
+        <motion.h1
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.6, delay: 0.2 }}
+          className="text-3xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-center leading-tight max-w-5xl"
         >
-          <TypewriterEffect words={words} />
-        </motion.div>
+          hi, i'm <span className="text-primary" style={{ fontVariant: 'small-caps', letterSpacing: '0.02em' }}>rvv swamy</span>
+          <br className="sm:hidden" />
+          <span className="hidden sm:inline"> </span>
+          <span style={{ fontVariant: 'small-caps', letterSpacing: '0.02em' }}>fullstack developer.</span>
+        </motion.h1>
 
         {/* Description */}
         <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="text-sm sm:text-base md:text-lg text-muted-foreground text-center max-w-2xl leading-relaxed px-4"
+          className="text-sm sm:text-base md:text-lg lg:text-xl text-muted-foreground text-center max-w-3xl leading-relaxed"
         >
           Specializing in{" "}
           <span className="text-foreground font-semibold">MERN Stack</span>,{" "}
@@ -98,94 +98,6 @@ const HeroSection = () => {
           <span className="text-foreground font-semibold">TypeScript</span>.
           Building scalable web applications with clean code and modern design.
         </motion.p>
-
-        {/* CTA Buttons */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.6 }}
-          className="flex flex-row items-center gap-3 mt-2 w-full justify-center px-4 max-w-md"
-        >
-          <motion.a
-            href="#contact"
-            className="group relative px-4 py-2 sm:px-6 sm:py-2.5 bg-gradient-to-r from-primary to-primary/80 text-primary-foreground text-xs sm:text-sm font-semibold rounded-full hover:shadow-lg hover:shadow-primary/50 transition-all duration-300 whitespace-nowrap overflow-hidden"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <span className="relative z-10">Get In Touch</span>
-            <span className="absolute inset-0 bg-gradient-to-r from-primary/0 via-white/20 to-primary/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></span>
-          </motion.a>
-          <motion.a
-            href="#projects"
-            className="group relative px-4 py-2 sm:px-6 sm:py-2.5 bg-transparent border-2 border-border text-foreground text-xs sm:text-sm font-semibold rounded-full hover:border-primary hover:text-primary hover:shadow-lg hover:shadow-primary/30 transition-all duration-300 whitespace-nowrap overflow-hidden"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <span className="relative z-10">View Projects</span>
-            <span className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></span>
-          </motion.a>
-        </motion.div>
-
-        {/* Social Links - Better Design */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.8 }}
-          className="flex items-center gap-5 mt-3"
-        >
-          {socialLinks.map((link, index) => (
-            <motion.a
-              key={link.label}
-              href={link.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-muted-foreground hover:text-foreground transition-all duration-300 group"
-              aria-label={link.label}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.3, delay: 0.9 + index * 0.1 }}
-              whileHover={{ y: -3 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <div className="relative">
-                <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/10 rounded-lg blur transition-all duration-300"></div>
-                <link.icon className="w-5 h-5 sm:w-6 sm:h-6 relative z-10" />
-              </div>
-            </motion.a>
-          ))}
-        </motion.div>
-
-        {/* Scroll Indicator */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 1.2 }}
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 hidden sm:block"
-        >
-          <motion.div
-            animate={{ y: [0, 8, 0] }}
-            transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-            className="flex flex-col items-center gap-2"
-          >
-            <span className="text-muted-foreground text-[10px] font-medium uppercase tracking-wider">
-              Scroll Down
-            </span>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-4 w-4 text-primary"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M19 14l-7 7m0 0l-7-7m7 7V3"
-              />
-            </svg>
-          </motion.div>
-        </motion.div>
       </div>
     </section>
   );

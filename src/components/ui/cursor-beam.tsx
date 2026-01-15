@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { useColorTheme, ColorTheme } from "@/contexts/ColorThemeContext";
 
 interface CursorPosition {
@@ -48,7 +48,7 @@ export const CursorBeam = () => {
         y: e.clientY,
       };
 
-      setTrail((prev) => [...prev.slice(-12), newDot]);
+      setTrail((prev) => [...prev.slice(-5), newDot]);
     };
 
     const handleMouseLeave = () => {
@@ -81,113 +81,65 @@ export const CursorBeam = () => {
 
   return (
     <>
-      {/* Beam line effect connecting trail */}
-      <svg
-        className="fixed inset-0 pointer-events-none z-[9996] w-full h-full"
-        style={{ opacity: isVisible ? 1 : 0 }}
-      >
-        <defs>
-          <linearGradient id="beamGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stopColor="transparent" />
-            <stop offset="100%" stopColor={colors.trail} />
-          </linearGradient>
-          <filter id="glow">
-            <feGaussianBlur stdDeviation="1.5" result="coloredBlur" />
-            <feMerge>
-              <feMergeNode in="coloredBlur" />
-              <feMergeNode in="SourceGraphic" />
-            </feMerge>
-          </filter>
-        </defs>
-        {trail.length > 1 && (
-          <path
-            d={`M ${trail.map((dot) => `${dot.x} ${dot.y}`).join(" L ")}`}
-            fill="none"
-            stroke="url(#beamGradient)"
-            strokeWidth="1.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            filter="url(#glow)"
-            opacity="0.7"
-          />
-        )}
-      </svg>
-
-      {/* Trail dots */}
-      <AnimatePresence>
-        {trail.map((dot, index) => (
-          <motion.div
-            key={dot.id}
-            className="fixed pointer-events-none z-[9997] rounded-full"
-            style={{
-              width: 4,
-              height: 4,
-              backgroundColor: colors.main,
-              boxShadow: `0 0 6px ${colors.glow}`,
-            }}
-            initial={{ 
-              x: dot.x - 2, 
-              y: dot.y - 2, 
-              opacity: 0.6,
-              scale: 1 
-            }}
-            animate={{ 
-              opacity: 0,
-              scale: 0.3,
-            }}
-            exit={{ opacity: 0, scale: 0 }}
-            transition={{ 
-              duration: 0.5,
-              ease: "easeOut"
-            }}
-          />
-        ))}
-      </AnimatePresence>
-
-      {/* Outer glow ring - follows with lag */}
+      {/* Animated ring pulse effect */}
       <motion.div
         className="fixed pointer-events-none z-[9998]"
         animate={{
           x: mousePosition.x - 12,
           y: mousePosition.y - 12,
-          opacity: isVisible ? 0.5 : 0,
-        }}
-        transition={{
-          type: "spring",
-          damping: 15,
-          stiffness: 100,
-          mass: 0.8,
-        }}
-      >
-        <div 
-          className="w-6 h-6 rounded-full blur-sm"
-          style={{
-            backgroundColor: colors.glow,
-            boxShadow: `0 0 12px ${colors.glow}`,
-          }}
-        />
-      </motion.div>
-
-      {/* Main cursor dot - smaller and follows with slight lag */}
-      <motion.div
-        className="fixed pointer-events-none z-[9999]"
-        animate={{
-          x: mousePosition.x - 3,
-          y: mousePosition.y - 3,
           opacity: isVisible ? 1 : 0,
         }}
         transition={{
           type: "spring",
-          damping: 25,
-          stiffness: 300,
+          damping: 30,
+          stiffness: 400,
           mass: 0.2,
         }}
       >
-        <div 
-          className="w-1.5 h-1.5 rounded-full"
+        <motion.div
+          className="w-6 h-6 rounded-full border"
+          style={{
+            borderColor: colors.main,
+          }}
+          animate={{
+            scale: [1, 1.3, 1],
+            opacity: [0.6, 0.2, 0.6],
+          }}
+          transition={{
+            duration: 1.5,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+        />
+      </motion.div>
+
+      {/* Main cursor dot - small and follows cursor */}
+      <motion.div
+        className="fixed pointer-events-none z-[9999]"
+        animate={{
+          x: mousePosition.x - 4,
+          y: mousePosition.y - 4,
+          opacity: isVisible ? 1 : 0,
+        }}
+        transition={{
+          type: "spring",
+          damping: 50,
+          stiffness: 1000,
+          mass: 0.1,
+        }}
+      >
+        <motion.div 
+          className="w-2 h-2 rounded-full"
           style={{
             backgroundColor: colors.main,
-            boxShadow: `0 0 8px ${colors.main}`,
+          }}
+          animate={{
+            scale: [1, 1.2, 1],
+          }}
+          transition={{
+            duration: 0.8,
+            repeat: Infinity,
+            ease: "easeInOut",
           }}
         />
       </motion.div>

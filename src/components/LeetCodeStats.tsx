@@ -380,7 +380,7 @@ const SubmissionHeatmap = ({
           <div className="relative">
             <button
               onClick={() => setShowYearDropdown(!showYearDropdown)}
-              className="flex items-center gap-2 px-3 py-1.5 bg-muted/50 dark:bg-zinc-900 rounded-lg hover:bg-muted dark:hover:bg-zinc-800 transition-colors text-foreground border dark:border-zinc-800"
+              className="inline-flex items-center gap-2 px-4 py-1.5 text-sm font-medium text-foreground border border-border rounded-full bg-transparent hover:border-primary hover:text-primary transition-all duration-300"
             >
               {selectedYear === 'current' ? 'Current' : selectedYear}
               <svg 
