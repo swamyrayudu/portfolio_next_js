@@ -1,6 +1,7 @@
 "use client";
 
 import React, { createContext, useContext, useEffect, useState } from "react";
+import { useTheme } from "next-themes";
 
 export type ColorTheme = "emerald" | "blue" | "purple" | "orange" | "red" | "pink" | "cyan" | "yellow";
 
@@ -12,16 +13,29 @@ interface ColorThemeContextType {
 const ColorThemeContext = createContext<ColorThemeContextType | undefined>(undefined);
 
 export function ColorThemeProvider({ children }: { children: React.ReactNode }) {
-  const [colorTheme, setColorThemeState] = useState<ColorTheme>("emerald");
-
-  useEffect(() => {
-    // Load saved theme from localStorage
-    const savedTheme = localStorage.getItem("color-theme") as ColorTheme;
-    if (savedTheme) {
-      setColorThemeState(savedTheme);
-      applyColorTheme(savedTheme);
+  // Initialize state from localStorage to prevent flash of default color
+  const [colorTheme, setColorThemeState] = useState<ColorTheme>(() => {
+    if (typeof window !== 'undefined') {
+      const savedTheme = localStorage.getItem("color-theme") as ColorTheme;
+      return savedTheme || "emerald";
     }
-  }, []);
+    return "emerald";
+  });
+  
+  const { theme, systemTheme } = useTheme();
+
+  // Apply color theme on mount and when color theme changes
+  useEffect(() => {
+    applyColorTheme(colorTheme);
+  }, [colorTheme]);
+
+  // Re-apply color theme when dark/light mode changes
+  useEffect(() => {
+    const currentTheme = theme === 'system' ? systemTheme : theme;
+    if (currentTheme) {
+      applyColorTheme(colorTheme);
+    }
+  }, [theme, systemTheme, colorTheme]);
 
   const setColorTheme = (theme: ColorTheme) => {
     setColorThemeState(theme);
