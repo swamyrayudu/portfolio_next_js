@@ -9,6 +9,8 @@ import ProjectsSection from "@/components/ProjectsSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 
+import AntigravityCursor from "@/components/AntigravityCursor";
+
 export default function Home() {
   useEffect(() => {
     document.documentElement.style.scrollBehavior = "smooth";
@@ -32,7 +34,8 @@ export default function Home() {
   }, []);
 
   return (
-    <main className="min-h-screen bg-gray-50 dark:bg-gray-950 text-gray-900 dark:text-gray-100 font-sans transition-colors duration-300">
+    <main className="min-h-screen bg-gray-50 dark:bg-gray-950 text-gray-900 dark:text-gray-100 font-sans transition-colors duration-300 relative">
+      <AntigravityCursor />
       <Navigation />
       <HeroSection />
       <AboutSection />

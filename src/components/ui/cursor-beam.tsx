@@ -81,65 +81,51 @@ export const CursorBeam = () => {
 
   return (
     <>
-      {/* Animated ring pulse effect */}
+      {/* Animated ring pulse effect - instant follow */}
       <motion.div
         className="fixed pointer-events-none z-[9998]"
         animate={{
-          x: mousePosition.x - 12,
-          y: mousePosition.y - 12,
+          x: mousePosition.x - 8,
+          y: mousePosition.y - 8,
           opacity: isVisible ? 1 : 0,
         }}
         transition={{
-          type: "spring",
-          damping: 30,
-          stiffness: 400,
-          mass: 0.2,
+          duration: 0,
         }}
       >
         <motion.div
-          className="w-6 h-6 rounded-full border"
+          className="w-4 h-4 rounded-full border"
           style={{
             borderColor: colors.main,
           }}
           animate={{
-            scale: [1, 1.3, 1],
-            opacity: [0.6, 0.2, 0.6],
+            scale: [1, 1.2, 1],
+            opacity: [0.7, 0.3, 0.7],
           }}
           transition={{
-            duration: 1.5,
+            duration: 1,
             repeat: Infinity,
             ease: "easeInOut",
           }}
         />
       </motion.div>
 
-      {/* Main cursor dot - small and follows cursor */}
+      {/* Main cursor dot - instant follow */}
       <motion.div
         className="fixed pointer-events-none z-[9999]"
         animate={{
-          x: mousePosition.x - 4,
-          y: mousePosition.y - 4,
+          x: mousePosition.x - 3,
+          y: mousePosition.y - 3,
           opacity: isVisible ? 1 : 0,
         }}
         transition={{
-          type: "spring",
-          damping: 50,
-          stiffness: 1000,
-          mass: 0.1,
+          duration: 0,
         }}
       >
         <motion.div 
-          className="w-2 h-2 rounded-full"
+          className="w-1.5 h-1.5 rounded-full"
           style={{
             backgroundColor: colors.main,
-          }}
-          animate={{
-            scale: [1, 1.2, 1],
-          }}
-          transition={{
-            duration: 0.8,
-            repeat: Infinity,
-            ease: "easeInOut",
           }}
         />
       </motion.div>
