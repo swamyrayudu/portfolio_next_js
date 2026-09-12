@@ -17,10 +17,29 @@ interface Particle {
 export default function AntigravityCursor() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [isHovering, setIsHovering] = useState(false);
+  const [isNearFooter, setIsNearFooter] = useState(false);
   
   // Cursor motion values
   const cursorX = useMotionValue(-100);
   const cursorY = useMotionValue(-100);
+
+  // Detect scroll position to hide particles near footer
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.scrollY;
+      const windowHeight = window.innerHeight;
+      const documentHeight = document.documentElement.scrollHeight;
+      
+      // Hide particles when within 400px of bottom
+      const distanceFromBottom = documentHeight - scrollTop - windowHeight;
+      setIsNearFooter(distanceFromBottom < 400);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    handleScroll(); // Check initial position
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -61,13 +80,13 @@ export default function AntigravityCursor() {
     };
     window.addEventListener("mousemove", handleMouseMove);
 
-    // Particle System
+    // Particle System - balanced opacity for light/dark mode
     const colors = [
-      "rgba(66, 133, 244, 0.5)",   // Google Blue
-      "rgba(219, 68, 55, 0.5)",    // Google Red
-      "rgba(244, 180, 0, 0.5)",    // Google Yellow
-      "rgba(15, 157, 88, 0.5)",    // Google Green
-      "rgba(160, 160, 255, 0.4)",  // Light Purpleish
+      "rgba(66, 133, 244, 0.65)",   // Google Blue
+      "rgba(219, 68, 55, 0.65)",    // Google Red
+      "rgba(244, 180, 0, 0.7)",     // Google Yellow
+      "rgba(15, 157, 88, 0.65)",    // Google Green
+      "rgba(140, 100, 255, 0.6)",   // Purple
     ];
 
     const createParticle = (): Particle => {
@@ -156,7 +175,7 @@ export default function AntigravityCursor() {
       {/* Particle Canvas Layer */}
       <canvas
         ref={canvasRef}
-        className="fixed inset-0 pointer-events-none z-0 opacity-40"
+        className={`fixed inset-0 pointer-events-none z-10 transition-opacity duration-500 ${isNearFooter ? 'opacity-0' : 'opacity-55'}`}
       />
 
       {/* Custom Cursor - instant follow */}

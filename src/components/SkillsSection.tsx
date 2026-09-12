@@ -5,86 +5,32 @@ import { useRef } from "react";
 
 const SkillsSection = () => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: false, margin: "-100px" });
+  const isInView = useInView(ref, { once: true, margin: "-80px" });
 
-  const skills = [
+  const skillCategories = [
     {
-      name: "HTML",
-      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg",
-      needsWhiteBg: false,
-      color: "#E34F26",
+      name: "Languages",
+      skills: ["JavaScript", "TypeScript", "Python", "SQL"],
     },
     {
-      name: "CSS",
-      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg",
-      needsWhiteBg: false,
-      color: "#1572B6",
+      name: "Frontend",
+      skills: ["React.js", "Next.js", "Tailwind CSS", "Framer Motion", "HTML5", "CSS3"],
     },
     {
-      name: "JavaScript",
-      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
-      needsWhiteBg: false,
-      color: "#F7DF1E",
+      name: "Backend",
+      skills: ["Node.js", "Express.js", "REST APIs", "WebSockets"],
     },
     {
-      name: "TypeScript",
-      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg",
-      needsWhiteBg: false,
-      color: "#3178C6",
+      name: "Databases",
+      skills: ["MongoDB", "PostgreSQL", "MySQL", "Supabase", "Drizzle ORM"],
     },
     {
-      name: "Tailwind",
-      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg",
-      needsWhiteBg: false,
-      color: "#06B6D4",
+      name: "Tools & Infra",
+      skills: ["Git", "GitHub", "Vercel", "Render", "Postman", "VS Code"],
     },
     {
-      name: "Node.js",
-      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
-      needsWhiteBg: false,
-      color: "#339933",
-    },
-    {
-      name: "React.js",
-      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
-      needsWhiteBg: false,
-      color: "#61DAFB",
-    },
-    {
-      name: "Next.js",
-      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg",
-      needsWhiteBg: true,
-      color: "#000000",
-    },
-    {
-      name: "Express.js",
-      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/express/express-original.svg",
-      needsWhiteBg: true,
-      color: "#000000",
-    },
-    {
-      name: "MongoDB",
-      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg",
-      needsWhiteBg: false,
-      color: "#47A248",
-    },
-    {
-      name: "MySQL",
-      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg",
-      needsWhiteBg: false,
-      color: "#4479A1",
-    },
-    {
-      name: "PostgreSQL",
-      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg",
-      needsWhiteBg: false,
-      color: "#336791",
-    },
-    {
-      name: "Python",
-      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
-      needsWhiteBg: false,
-      color: "#3776AB",
+      name: "AI & Data",
+      skills: ["OpenAI API", "LangChain basics", "Pandas", "NumPy", "Machine Learning"],
     },
   ];
 
@@ -92,84 +38,77 @@ const SkillsSection = () => {
     <section
       ref={ref}
       id="skills"
-      className="bg-background px-4 py-16 sm:py-20 max-w-full mx-auto"
+      className="grid-background py-20 sm:py-28 px-4 sm:px-8 border-t border-border/50 scroll-mt-16"
     >
-      <div className="max-w-6xl mx-auto">
-        {/* Header */}
+      <div className="max-w-5xl mx-auto">
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={isInView ? { opacity: 1 } : {}}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-12"
+          initial={{ opacity: 0, y: 10 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.5 }}
+          className="mb-12"
         >
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-3">
-            Skills & <span className="text-primary">Technologies</span>
-          </h2>
-          <p className="text-muted-foreground text-base">
-            Showcasing My Expertise And Technical Proficiencies
+          <p className="text-xs font-mono text-muted-foreground tracking-widest uppercase mb-2">
+            TOOLS I BUILD WITH
           </p>
+          <h2 className="serif-title text-5xl sm:text-6xl text-foreground leading-none">
+            Tech Stack
+          </h2>
         </motion.div>
 
-        {/* Skills Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
-          {skills.map((skill, index) => (
+        <div className="space-y-8">
+          {skillCategories.map((cat, catIdx) => (
             <motion.div
-              key={skill.name}
-              initial={{ opacity: 0, y: 20 }}
+              key={cat.name}
+              initial={{ opacity: 0, y: 10 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{
-                duration: 0.5,
-                delay: index * 0.05,
-              }}
-              whileHover={{
-                scale: 1.05,
-                y: -5,
-                transition: { duration: 0.2 },
-              }}
-              className="group relative"
+              transition={{ duration: 0.5, delay: catIdx * 0.08 }}
+              className="flex flex-col sm:flex-row sm:items-start gap-4"
             >
-              {/* Glow effect on hover */}
-              <div
-                className="absolute -inset-0.5 rounded-xl opacity-0 group-hover:opacity-100 blur transition-opacity duration-300"
-                style={{
-                  background: `radial-gradient(circle at center, ${skill.color}40, transparent)`,
-                }}
-              ></div>
-
-              <div className="relative bg-card border border-border rounded-xl p-4 flex flex-col items-center justify-center gap-3 h-full group-hover:border-primary/50 transition-all duration-300 overflow-hidden">
-                {/* Background color overlay on hover */}
-                <div
-                  className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-300"
-                  style={{
-                    background: `radial-gradient(circle at center, ${skill.color}, transparent 70%)`,
-                  }}
-                ></div>
-
-                {/* Icon with rotation and optional white background */}
-                <motion.div
-                  className={`w-12 h-12 flex items-center justify-center relative z-10 ${
-                    skill.needsWhiteBg ? "bg-white dark:bg-white rounded-lg p-2" : ""
-                  }`}
-                  whileHover={{ rotate: 360 }}
-                  transition={{ duration: 0.6 }}
-                >
-                  <img
-                    src={skill.icon}
-                    alt={skill.name}
-                    className={`w-full h-full object-contain ${
-                      skill.needsWhiteBg ? "dark:invert-0" : ""
-                    }`}
-                  />
-                </motion.div>
-
-                {/* Name */}
-                <p className="text-card-foreground font-medium text-sm text-center group-hover:text-primary transition-colors duration-300 relative z-10">
-                  {skill.name}
+              <div className="w-28 flex-shrink-0">
+                <p className="text-xs font-mono text-muted-foreground tracking-widest uppercase pt-1">
+                  {cat.name}
                 </p>
+              </div>
+              <div className="flex flex-wrap gap-2">
+                {cat.skills.map((skill, skillIdx) => (
+                  <motion.span
+                    key={skill}
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    animate={isInView ? { opacity: 1, scale: 1 } : {}}
+                    transition={{ duration: 0.3, delay: catIdx * 0.08 + skillIdx * 0.04 }}
+                    className="capsule-tag"
+                  >
+                    {skill}
+                  </motion.span>
+                ))}
               </div>
             </motion.div>
           ))}
         </div>
+
+        {/* Currently learning */}
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.5, delay: 0.6 }}
+          className="mt-12 pt-8 border-t border-border/50 flex flex-col sm:flex-row sm:items-center gap-4"
+        >
+          <div className="w-28 flex-shrink-0">
+            <p className="text-xs font-mono text-muted-foreground tracking-widest uppercase">
+              LEARNING
+            </p>
+          </div>
+          <div className="flex flex-wrap gap-2">
+            {["Docker", "Kubernetes", "System Design", "Redis", "BetterAuth"].map((skill) => (
+              <span
+                key={skill}
+                className="capsule-tag border-dashed"
+              >
+                {skill}
+              </span>
+            ))}
+          </div>
+        </motion.div>
       </div>
     </section>
   );
