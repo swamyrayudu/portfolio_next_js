@@ -26,10 +26,38 @@ const HeroSection = () => {
   };
 
   const categories = [
-    { icon: "⌨️", label: "DEVELOPMENT" },
-    { icon: "⚙️", label: "SYSTEMS" },
-    { icon: "🤖", label: "AI PRODUCTS" },
-    { icon: "🏗️", label: "ARCHITECTURE" },
+    {
+      icon: (
+        <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+          <path strokeLinecap="round" strokeLinejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+        </svg>
+      ),
+      label: "DEVELOPMENT",
+    },
+    {
+      icon: (
+        <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+          <path strokeLinecap="round" strokeLinejoin="round" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
+        </svg>
+      ),
+      label: "SYSTEMS",
+    },
+    {
+      icon: (
+        <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+          <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+        </svg>
+      ),
+      label: "AI PRODUCTS",
+    },
+    {
+      icon: (
+        <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+          <path strokeLinecap="round" strokeLinejoin="round" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+        </svg>
+      ),
+      label: "ARCHITECTURE",
+    },
   ];
 
   return (
@@ -185,9 +213,16 @@ const HeroSection = () => {
           <div className="hidden lg:flex flex-col gap-4 animate-float-delay">
             {/* Like / Hola card */}
             <div className="widget-card p-5">
-              <p className="font-semibold text-foreground text-base mb-1">
-                hola 👋
-              </p>
+              <div className="flex items-center gap-2 mb-1">
+                <p className="font-semibold text-foreground text-base">
+                  hola
+                </p>
+                <span className="flex h-2 w-2 relative">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                </span>
+                <span className="text-[10px] font-mono text-muted-foreground uppercase tracking-wider">online</span>
+              </div>
               <p className="text-muted-foreground text-xs mb-4">
                 impressed? tap once — it counts
               </p>
@@ -230,15 +265,15 @@ const HeroSection = () => {
                   <span className="text-sm font-bold text-foreground font-mono">500+</span>
                 </div>
                 <div className="flex justify-between items-center">
-                  <span className="text-sm text-muted-foreground">LeetCode</span>
-                  <span className="text-sm font-bold text-foreground font-mono">200+</span>
+                  <span className="text-sm text-muted-foreground">LeetCode / DSA</span>
+                  <span className="text-sm font-bold text-foreground font-mono">400+</span>
                 </div>
               </div>
             </div>
 
             {/* Resume quick link */}
             <a
-              href="https://drive.google.com/file/d/1BSzGPx1PAQdnfbw-MrGcaHuM1_NU6Cvr/view?usp=drivesdk"
+              href="/resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="widget-card p-4 flex items-center gap-3 hover:bg-secondary transition-colors group"

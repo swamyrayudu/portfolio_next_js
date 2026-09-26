@@ -46,20 +46,20 @@ const AboutSection = () => {
             >
               <p>
                 I&apos;m Rayudu Veera Venkata Swamy — a full-stack developer who cares about clean code,
-                scalable systems, and building products that real users rely on. Currently working as a
-                developer intern at{" "}
+                scalable systems, and building products that real users rely on. Experienced as a
+                Software Engineer Intern at{" "}
                 <span className="text-foreground font-medium border-b border-foreground/30 pb-0.5">Innov2Grow</span>{" "}
-                and building the{" "}
-                <span className="text-foreground font-medium border-b border-foreground/30 pb-0.5">Local Hunt</span>{" "}
-                project at K-HUB, KIET.
+                and Full-Stack Developer at{" "}
+                <span className="text-foreground font-medium border-b border-foreground/30 pb-0.5">C4GT</span>{" "}
+                contributing to Local Hunt.
               </p>
               <p>
-                I build production web apps end-to-end: REST APIs, PostgreSQL databases, real-time
-                layers, and the frontends that tie them together. Recent work spans MERN applications,
-                AI chatbots, e-commerce platforms, and job automation tools serving real users.
+                I build production web apps end-to-end: REST APIs, PostgreSQL & Supabase databases, Redis caching layers,
+                and responsive frontends with Next.js and React. Recent projects include RSD Education (a high-concurrency CBT exam platform)
+                and TalentPath (an EdTech career preparation platform).
               </p>
               <p>
-                Right now I&apos;m deepening my skills in system design, database internals, and scalable
+                Right now I&apos;m deepening my skills in system design, distributed rate limiting, and scalable
                 backend architecture — the stuff that makes systems survive traffic spikes, not just
                 demo well.
               </p>
@@ -94,7 +94,7 @@ const AboutSection = () => {
               className="mt-8"
             >
               <a
-                href="https://drive.google.com/file/d/1BSzGPx1PAQdnfbw-MrGcaHuM1_NU6Cvr/view?usp=drivesdk"
+                href="/resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2.5 px-6 py-3 bg-foreground text-background rounded-xl text-sm font-semibold hover:opacity-80 active:scale-95 transition-all"

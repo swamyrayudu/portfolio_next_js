@@ -11,9 +11,9 @@ const months = [
     entries: [
       {
         num: "#01",
-        challenge: "Portfolio had no clear narrative or visual identity",
-        solution: "Rebuilt from scratch with a developer-centric design inspired by avinasha.vercel.app",
-        outcome: "Launched redesigned portfolio with bento hero, IDE workspace, and terminal build log",
+        challenge: "High-concurrency CBT exam simulation needed dynamic question selection without DB bottlenecks in RSD Education",
+        solution: "Engineered two-pass question selection engine with weak-topic priority scoring, Redis caching, warming, and cache-stampede prevention",
+        outcome: "Delivered 160-question CBT mocks with sub-millisecond retrieval and zero database saturation under simulated load",
       },
       {
         num: "#02",

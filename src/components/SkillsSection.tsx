@@ -18,19 +18,23 @@ const SkillsSection = () => {
     },
     {
       name: "Backend",
-      skills: ["Node.js", "Express.js", "REST APIs", "WebSockets"],
+      skills: ["Node.js", "Express.js", "REST APIs", "Rate Limiting", "Caching", "Message Queues", "Authentication", "WebSockets"],
     },
     {
       name: "Databases",
-      skills: ["MongoDB", "PostgreSQL", "MySQL", "Supabase", "Drizzle ORM"],
+      skills: ["PostgreSQL", "Redis", "Supabase", "MongoDB", "MySQL", "Drizzle ORM"],
+    },
+    {
+      name: "Core CS",
+      skills: ["Operating Systems", "DBMS", "Computer Networks", "OOP"],
     },
     {
       name: "Tools & Infra",
-      skills: ["Git", "GitHub", "Vercel", "Render", "Postman", "VS Code"],
+      skills: ["Git", "GitHub", "Vercel", "Postman", "Render", "VS Code"],
     },
     {
       name: "AI & Data",
-      skills: ["OpenAI API", "LangChain basics", "Pandas", "NumPy", "Machine Learning"],
+      skills: ["OpenAI API", "Pandas", "NumPy", "Machine Learning"],
     },
   ];
 

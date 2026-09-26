@@ -8,11 +8,11 @@ const StatsSection = () => {
   const isInView = useInView(ref, { once: true, margin: "-80px" });
 
   const stats = [
-    { value: "6+", label: "Projects Shipped", sub: "Full-stack to prod" },
+    { value: "8+", label: "Projects Shipped", sub: "Full-stack to prod" },
     { value: "500+", label: "GitHub Commits", sub: "2025 contributions" },
-    { value: "200+", label: "LeetCode Problems", sub: "DSA & algorithms" },
-    { value: "2", label: "Internships", sub: "Real product dev" },
-    { value: "3+", label: "APIs Built", sub: "Production grade" },
+    { value: "400+", label: "DSA Problems Solved", sub: "LeetCode, GfG & Coding Ninjas" },
+    { value: "18th", label: "GfG Institute Rank", sub: "KIET leaderboard" },
+    { value: "2", label: "Software Roles", sub: "Innov2Grow & C4GT" },
     { value: "∞", label: "Things Learned", sub: "And counting" },
   ];
 
